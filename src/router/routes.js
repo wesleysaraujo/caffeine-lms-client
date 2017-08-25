@@ -1,11 +1,11 @@
-import Home from '@/components/views/home/Home.vue'
-import Contact from '@/components/views/contact/Contact.vue'
+import {routes as dashboard} from '../modules/dashboard'
+import {routes as auth} from '../modules/auth'
+import Contact from '../components/views/contact/Contact'
 
-export default [
+const root = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/dashboard'
   },
   {
     path: '/contato',
@@ -13,3 +13,5 @@ export default [
     component: Contact
   }
 ]
+
+export default [ ...root, ...dashboard, ...auth ]

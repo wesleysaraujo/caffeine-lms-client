@@ -33,6 +33,9 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            <li>
+              <router-link to="/login">Login</router-link>
+            </li>
             <li><router-link to="/contato">Contato</router-link></li>
           </ul>
 
