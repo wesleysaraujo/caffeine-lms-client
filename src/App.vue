@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import MainHeader from './components/layout/Header'
+import MainHeader from './components/layout/Header/Main'
 
 export default {
   name: 'app',
