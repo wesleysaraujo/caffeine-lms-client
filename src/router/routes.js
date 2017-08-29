@@ -1,5 +1,4 @@
-import {routes as dashboard} from '../modules/dashboard'
-import {routes as auth} from '../modules/auth'
+import {routes as app} from '../app'
 import Contact from '../components/views/contact/Contact'
 
 const root = [
@@ -14,4 +13,7 @@ const root = [
   }
 ]
 
-export default [ ...root, ...dashboard, ...auth ]
+export default [
+  ...root,
+  ...app
+]
