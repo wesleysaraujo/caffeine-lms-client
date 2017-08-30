@@ -8,42 +8,45 @@
 				</div>
 		    	<div class="form-group" :class="{'has-error': loginError}">
 		    		<label for="email" class="control-label">E-mail</label>
-		    		<input type="email" class="form-control" id="email" v-model="login.email">
+		    		<input type="email" class="form-control" id="email" v-model="user.email">
 		    	</div>
 		    	<div class="form-group" :class="{'has-error': loginError}">
 		    		<label for="password" class="control-label">Senha</label>
-		    		<input type="password" class="form-control" id="password" v-model="login.password">
+		    		<input type="password" class="form-control" id="password" v-model="user.password">
 		    	</div>
-		    	<button class="btn btn-primary" @click.prevent="authentication()">Entrar</button>
+		    	<button class="btn btn-primary" @click.prevent="authentication()" :disabled="!isValid">Entrar</button>
 		    </form>
 		</div>
 	</div>
 </template>
 
 <script>
+import {isEmpty} from 'lodash'
+
 export default {
   name: 'autn-login',
   data () {
     return {
       msg: 'Bem vindo ao Caffeine Dashboard',
-      login: {
+      user: {
         email: '',
         password: ''
       },
       loginError: false
     }
   },
+  computed: {
+    isValid () {
+      return !isEmpty(this.user.email) && !isEmpty(this.user.password)
+    }
+  },
   methods: {
     authentication: function () {
-      if (this.login.email && this.login.password) {
-        alert('Olá ' + this.login.email)
-      } else {
-        this.loginError = true
-      }
+      this.$router.push('/')
     }
   },
   watch: {
-    login: function (value) {
+    user: function (value) {
       console.log(value)
     }
   }
