@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import {mapActions} from 'vuex'
 import {isEmpty} from 'lodash'
 
 export default {
@@ -41,13 +42,13 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['attemptLogin']),
     authentication: function () {
-      this.$router.push('/')
-    }
-  },
-  watch: {
-    user: function (value) {
-      console.log(value)
+      const user = this.user
+      this.attemptLogin({...user})
+        .then(() => {
+          this.$router.push('/dashboard')
+        })
     }
   }
 }
