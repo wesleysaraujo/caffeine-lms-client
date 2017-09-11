@@ -43,11 +43,14 @@ export default {
   },
   methods: {
     ...mapActions(['attemptLogin']),
-    authentication: function () {
+    authentication () {
+      this.$loader.show()
+
       const user = this.user
       this.attemptLogin({...user})
         .then(() => {
           this.$router.push('/dashboard')
+          this.$loader.hide()
         })
     }
   }

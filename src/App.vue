@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <page-loader></page-loader>
     <main-header></main-header>
     <main>
       <div class="container-fluid">
@@ -8,9 +9,9 @@
             <router-view></router-view>
           </div>
         </div>
-      </div>  
+      </div>
     </main>
-    
+
   </div>
 </template>
 
